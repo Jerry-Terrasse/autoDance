@@ -1,0 +1,21 @@
+metric: COCO
+num_classes: 3
+
+TrainDataset:
+  !COCODataSet
+    image_dir: train
+    anno_path: train/_annotations.coco.json
+    dataset_dir: dataset/coco/hp1
+    data_fields: ['image', 'gt_bbox', 'gt_class', 'is_crowd']
+
+EvalDataset:
+  !COCODataSet
+    image_dir: valid
+    anno_path: valid/_annotations.coco.json
+    dataset_dir: dataset/coco/hp1
+
+TestDataset:
+  !ImageFolder
+    image_dir: test
+    anno_path: test/_annotations.coco.json
+    dataset_dir: dataset/coco/hp1
